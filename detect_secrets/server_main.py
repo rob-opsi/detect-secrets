@@ -146,7 +146,7 @@ def parse_repo_config(args):
     return RepoConfig(
         default_repo_config.get('base_tmp_dir', DEFAULT_BASE_TMP_DIR),
         default_repo_config.get('baseline', '') or (args.baseline[0]),
-        default_repo_config.get('exclude_regex', ''),
+        default_repo_config.get('file_exclude_regex', ''),
     )
 
 
@@ -194,7 +194,7 @@ def initialize_repos_from_repo_yaml(
         if 'baseline_file' in entry:
             config = RepoConfig(
                 base_tmp_dir=repo_config.base_tmp_dir,
-                exclude_regex=repo_config.exclude_regex,
+                file_exclude_regex=repo_config.file_exclude_regex,
                 baseline=entry['baseline_file'],
             )
 

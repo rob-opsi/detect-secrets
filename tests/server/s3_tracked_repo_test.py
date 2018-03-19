@@ -51,7 +51,7 @@ class S3TrackedRepoTest(unittest.TestCase):
                 RepoConfig(
                     base_tmp_dir=DEFAULT_BASE_TMP_DIR,
                     baseline='baseline',
-                    exclude_regex='',
+                    file_exclude_regex='',
                 ),
                 S3Config(
                     s3_creds_file='s3_creds_file',

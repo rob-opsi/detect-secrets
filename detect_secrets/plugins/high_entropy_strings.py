@@ -20,7 +20,6 @@ class HighEntropyStringsPlugin(BasePlugin):
         self.secret_type = 'High Entropy String'
 
         # Allow whitelisting individual lines.
-        # TODO: Update for not just python comments?
         self.ignore_regex = re.compile(r'# ?pragma: ?whitelist[ -]secret')
 
     def calculate_shannon_entropy(self, data):

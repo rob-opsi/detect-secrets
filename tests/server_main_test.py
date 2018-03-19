@@ -39,7 +39,7 @@ class ServerTest(unittest.TestCase):
         return RepoConfig(
             base_tmp_dir='default_base_tmp_dir',
             baseline='baseline',
-            exclude_regex='',
+            file_exclude_regex='',
         )
 
     def test_parse_sensitivity_values_usage_defaults(self):

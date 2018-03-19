@@ -91,7 +91,7 @@ class BaseTrackedRepo(object):
         self.plugin_config = plugin_sensitivity
         self.base_tmp_dir = repo_config.base_tmp_dir
         self.baseline_file = repo_config.baseline
-        self.exclude_regex = repo_config.exclude_regex
+        self.file_exclude_regex = repo_config.file_exclude_regex
 
         self.name = self._get_repo_name(repo)
 
@@ -122,7 +122,7 @@ class BaseTrackedRepo(object):
         # Add server-side configuration to repo
         data['repo_config'] = RepoConfig(
             base_tmp_dir=repo_config.base_tmp_dir,
-            exclude_regex=repo_config.exclude_regex,
+            file_exclude_regex=repo_config.file_exclude_regex,
             baseline=data['baseline_file'],
         )
 
@@ -150,7 +150,7 @@ class BaseTrackedRepo(object):
 
         secrets.load_from_diff(
             diff,
-            self.exclude_regex,
+            self.file_exclude_regex,
             baseline_file=baseline,
             last_commit_hash=self.last_commit_hash,
             repo_name=self.name

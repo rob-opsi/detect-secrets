@@ -6,6 +6,6 @@ RepoConfig = namedtuple(
     [
         'base_tmp_dir',
         'baseline',
-        'exclude_regex',
+        'file_exclude_regex',
     ]
 )

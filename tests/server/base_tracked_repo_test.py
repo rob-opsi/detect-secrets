@@ -30,7 +30,7 @@ def mock_tracked_repo(cls=BaseTrackedRepo, **kwargs):
         'repo_config': RepoConfig(
             base_tmp_dir='foo/bar',
             baseline='.secrets.baseline',
-            exclude_regex='',
+            file_exclude_regex='',
         ),
         'plugin_sensitivity': SensitivityValues(
             base64_limit=4.5,
@@ -74,7 +74,7 @@ class BaseTrackedRepoTest(unittest.TestCase):
         repo_config = RepoConfig(
             base_tmp_dir=DEFAULT_BASE_TMP_DIR,
             baseline='baseline',
-            exclude_regex='',
+            file_exclude_regex='',
         )
         with mock.patch('detect_secrets.server.base_tracked_repo.codecs.open', m):
             repo = BaseTrackedRepo.load_from_file('will_be_mocked', repo_config=repo_config)
@@ -91,7 +91,7 @@ class BaseTrackedRepoTest(unittest.TestCase):
         repo_config = RepoConfig(
             base_tmp_dir=DEFAULT_BASE_TMP_DIR,
             baseline='baseline',
-            exclude_regex='',
+            file_exclude_regex='',
         )
         # IOError
         mock_filepath.return_value = '/blah'
